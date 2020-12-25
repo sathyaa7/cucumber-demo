@@ -4,7 +4,7 @@ Feature: Account validation
   Background:
     Given The user has already logged into the application
     |username|password|
-    |sathyajothi247@gmail.com|High5        |
+    |abc@gmail.com|password        |
 
   Scenario: Verify account page title
     Given user is on accounts page

@@ -23,4 +23,4 @@ And the user clicks the login button
 Then page title should be "My account - My Store"
 Examples:
 |username|password|
-|sathyajothi247@gmail.com|High5|
+|abc@gmail.com|password|
