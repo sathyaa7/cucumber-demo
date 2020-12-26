@@ -80,14 +80,14 @@
                             <goal>integration-test</goal>
                             <goal>verify</goal>
                         </goals>
-                        <configuration>
-                            <includes>
-                                <include>**/RunnerTest.java</include>
-                            </includes>
-                            <parallel>methods</parallel>
-                            <threadCount>2</threadCount>
-                            <perCoreThreadCount>true</perCoreThreadCount>
-                        </configuration>
+                        <!--<configuration>-->
+                            <!--<includes>-->
+                                <!--<include>**/RunnerTest.java</include>-->
+                            <!--</includes>-->
+                            <!--<parallel>methods</parallel>-->
+                            <!--<threadCount>2</threadCount>-->
+                            <!--<perCoreThreadCount>true</perCoreThreadCount>-->
+                        <!--</configuration>-->
                     </execution>
                 </executions>
             </plugin>
