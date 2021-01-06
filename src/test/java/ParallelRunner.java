@@ -13,16 +13,21 @@ import org.testng.annotations.*;
         glue={"parallel"},
 
         plugin={"pretty",
-        "json:target/myreports/reports.json",
-        "timeline:test-output-thread"}
+                "json:target/myreports/reports.json",
+                "timeline:test-output-thread"}
 
 
 )
 
 //comment if secnario level parallell execution is not needed via testng
 
-public class RunnerTest  {
+public class ParallelRunner extends AbstractTestNGCucumberTests {
 
-
+    @Override
+    @DataProvider(parallel=true)
+    public Object[][] scenarios()
+    {
+        return super.scenarios();
+    }
 
 }

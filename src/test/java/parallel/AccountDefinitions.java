@@ -1,4 +1,4 @@
-package stepDefinitions;
+package parallel;
 
 import Factory.DriverFactory;
 import io.cucumber.datatable.DataTable;

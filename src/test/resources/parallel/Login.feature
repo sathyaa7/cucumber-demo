@@ -14,7 +14,6 @@ Scenario: Forgot password link
 Given user is in login page
 Then the forgot password link should be displayed
 
-
   @demo
 Scenario Outline: Login page title
 Given user is in login page
@@ -24,3 +23,11 @@ Then page title should be "My account - My Store"
 Examples:
 |username|password|
 |abc@gmail.com|password|
+
+  @new
+  Scenario: Example check
+    Given user is in login page
+    When I do data driven testing with "<sheetname>"
+    Examples:
+    |sheetname|
+    |hikedetails|

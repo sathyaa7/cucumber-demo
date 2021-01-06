@@ -15,6 +15,7 @@
         <cucumber.version>6.9.0</cucumber.version>
         <maven.compiler.version>3.8.1</maven.compiler.version>
         <maven.surefire.version>2.22.2</maven.surefire.version>
+
     </properties>
 
     <dependencies>
@@ -51,6 +52,41 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.3.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml-schemas</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.19</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -69,12 +105,26 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.version}</version>
+<configuration>
+    <includes>
+        <include>**/ParallelRunner.java</include>
+    </includes>
+    <parallel>methods</parallel>
+    <useUnlimitedThreads>true</useUnlimitedThreads>
+    <properties>
+    <property>
+        <name>junit</name>
+        <value>false</value>
+    </property>
+</properties></configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>3.0.0-M5</version>
+
                 <executions>
+
                     <execution>
                         <goals>
                             <goal>integration-test</goal>
@@ -88,6 +138,7 @@
                             <!--<threadCount>2</threadCount>-->
                             <!--<perCoreThreadCount>true</perCoreThreadCount>-->
                         <!--</configuration>-->
+
                     </execution>
                 </executions>
             </plugin>
